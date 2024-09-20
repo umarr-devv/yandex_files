@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="wrapper">
-    <button class='auth-btn'>Авторизация</button>
+    <a href="{% url 'yandex_auth'%}">
+        <button class='auth-btn'>Авторизация</button>
+    </a>
 </div>
 {% endblock %}
