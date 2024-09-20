@@ -2,17 +2,29 @@ from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.views import generic
 
-from file_service.utils import get_access_token, get_yandex_auth_url
+from file_service.utils import get_access_token, get_yandex_auth_url, get_files_by_public_key
 
 
 class MainPageView(generic.TemplateView):
-    default_template_name = 'main.html'
-    after_auth_template_name = 'public_url.html'
+    main_page_template = 'main.html'
+    public_url_template = 'public_url.html'
+    files_list_template = 'files_list.html'
 
     def get(self, request: HttpRequest, *args, **kwargs):
         if request.COOKIES.get('access_token'):
-            return render(request, self.after_auth_template_name)
-        return render(request, self.default_template_name)
+            return render(request, self.public_url_template)
+        return render(request, self.main_page_template)
+
+    def post(self, request: HttpRequest, *args, **kwargs):
+        public_key = request.POST.get('public_key')
+        access_token = request.COOKIES.get('access_token')
+
+        files_response = get_files_by_public_key(public_key, access_token)
+        if files_response.status_code == 200:
+            return render(request, self.files_list_template, context={
+                'title': 'Список файлов',
+                'files': files_response.json()['_embedded']['items']
+            })
 
 
 class AuthYandexView(generic.View):
