@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST" action="">
-    {% csrf_token %}
-    <label for="public_key">Введите ссылку на папку:</label>
-    <input type="text" id="public_key" name="public_key">
-    <button type="submit">Отправить</button>
-</form>
+<div class="wrapper">
+    <form method="POST" action="" class="center-form">
+        {% csrf_token %}
+        <label for="public_key">Введите ссылку на папку:</label>
+        <input type="text" id="public_key" name="public_key">
+        <button type="submit">Отправить</button>
+    </form>
+</div>
 {% endblock %}
