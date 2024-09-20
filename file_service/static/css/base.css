@@ -48,7 +48,7 @@ body {
     border-radius: 6px;
 }
 
-.center-form button {
+.center-form button, .files_list button {
     margin-top: 24px;
     background-color: #fac000;
     color: #262633;
@@ -60,4 +60,29 @@ body {
 }
 .center-form button:active {
     transform: scale(0.75);
+}
+
+
+.files_list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.files_list th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.files_list th {
+    background-color: #fac000;
+}
+
+.files_list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.files_list tr:hover {
+    background-color: #eaeaea;
 }
