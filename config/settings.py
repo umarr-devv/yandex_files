@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Константы для взаимодействия с Яндекс API
+YANDEX_DISK_API_BASE_URL = "https://cloud-api.yandex.net/v1/disk"
+YANDEX_PUBLIC_API_URL = f"{YANDEX_DISK_API_BASE_URL}/public/resources"
+YANDEX_OAUTH_URL = "https://oauth.yandex.ru/authorize"
+CLIENT_ID = '1e97a8e91c6949e29a1fab5b375d0d1a'
+CLIENT_SECRET = '36ebb3aaed53426ea840aa3936b1fac6'
+REDIRECT_URI = 'http://127.0.0.1:8080/callback'
 
 # Application definition
 
