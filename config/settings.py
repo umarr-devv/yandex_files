@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 YANDEX_DISK_API_BASE_URL = "https://cloud-api.yandex.net/v1/disk"
 YANDEX_PUBLIC_API_URL = f"{YANDEX_DISK_API_BASE_URL}/public/resources"
 YANDEX_OAUTH_URL = "https://oauth.yandex.ru/authorize"
+YANDEX_TOKEN_URL = "https://oauth.yandex.ru/token"
 CLIENT_ID = 'd5fff26c5466473dbfd39df5b4234147'
 CLIENT_SECRET = 'c5f19be1cfb74e7483194e6b1b380205'
 REDIRECT_URI = 'http://127.0.0.1:8080/callback'
